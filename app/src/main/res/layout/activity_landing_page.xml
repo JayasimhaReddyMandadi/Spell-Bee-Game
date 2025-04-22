@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LandingPage"
+    android:background="@drawable/main_background">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#78000000"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <ImageView
+            android:id="@+id/crownImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/crown"/>
+        <TextView
+            android:id="@+id/yellingBeeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yelling Bee"
+            android:textColor="#D4AF37"
+            android:textSize="32sp"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintTop_toBottomOf="@id/crownImage"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Master the Words, Conquer the \nChallenge!"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_regular"
+            android:textAlignment="center"
+            android:textSize="18sp"/>
+        <Button
+            android:id="@+id/startGameButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Game"
+            android:textSize="16dp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            android:background="@drawable/button_gold"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_bold"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/practiceModeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_gold_outline"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Practice Mode"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#D4AF37"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/howToPlayButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to Play"
+            android:textSize="16dp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_dark_blue"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_bold"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
