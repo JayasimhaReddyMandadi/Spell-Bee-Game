@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.spellbee"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -55,4 +55,5 @@ dependencies {
 
     // Lifecycle (for lifecycleScope)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation ("com.mikhaellopez:circularprogressbar:3.1.0")
 }

@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    tools:context=".CongratulationPage">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#78000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/trophy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/trophy_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            android:contentDescription="Trophy Image"/>
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Congratulations!"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/trophy"
+            android:fontFamily="@font/poppins_bold"/>
+
+        <TextView
+            android:id="@+id/normalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="You've completed the Yell Bee Challenge"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text1"
+            android:fontFamily="@font/poppins_regular"/>
+
+        <LinearLayout
+            android:id="@+id/starLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/normalText"
+            android:contentDescription="Star Images">
+
+            <ImageView
+                android:id="@+id/starLeft"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/star_border"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/starCenter"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/star_border"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/starRight"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/star_border"
+                android:visibility="visible" />
+        </LinearLayout>
+
+
+        <GridLayout
+            android:id="@+id/scoreGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/grid_background"
+            android:columnCount="2"
+            android:rowCount="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/starLayout">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/totalWordsCount"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:contentDescription="Total Words"
+                android:importantForAccessibility="yes">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFBEB"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_total_words"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="Total Words"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_regular"
+                        android:importantForAccessibility="no"/>
+
+                    <TextView
+                        android:id="@+id/totalWords"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="15"
+                        android:textColor="#007AFF"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:importantForAccessibility="no"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/totalCorrectCount"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ECFDF5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_correct"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Correct"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_regular"
+                        android:importantForAccessibility="no"/>
+
+                    <TextView
+                        android:id="@+id/correctWords"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="12"
+                        android:textColor="#007AFF"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:importantForAccessibility="no"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Incorrect Words -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/totalWrongCount"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FEF2F2"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_wrong"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Wrong"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_regular"
+                        android:importantForAccessibility="no"/>
+
+                    <TextView
+                        android:id="@+id/wrongWords"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textColor="#007AFF"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:importantForAccessibility="no"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Time Taken -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/totalTime"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#EFF6FF"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_timer"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Time"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_regular"
+                        android:importantForAccessibility="no"/>
+
+                    <TextView
+                        android:id="@+id/timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="30s"
+                        android:textColor="#007AFF"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:importantForAccessibility="no"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/accuracyCard"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:layout_marginLeft="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintTop_toBottomOf="@id/scoreGrid">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F5F3FF"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:id="@+id/progressAccuracy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        app:cpb_background_progressbar_color="#E0E0E0"
+                        app:cpb_background_progressbar_width="10dp"
+                        app:cpb_progress="67"
+                        app:cpb_progress_max="100"
+                        app:cpb_progressbar_color="#007AFF"
+                        app:cpb_progressbar_width="10dp"
+                        app:cpb_round_border="true"
+                        android:importantForAccessibility="no"/>
+
+                    <TextView
+                        android:id="@+id/accuracyPercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="67%"
+                        android:textColor="#000000"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:importantForAccessibility="no"/>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/totalHintCount"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFF7ED"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_hint"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Hints Used"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_regular"
+                        android:importantForAccessibility="no"/>
+
+                    <TextView
+                        android:id="@+id/hintUsed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="00"
+                        android:textColor="#007AFF"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:importantForAccessibility="no"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/playAgainButton"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:text="↻ Play Again"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:background="@drawable/button_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main"
+        app:layout_constraintVertical_bias="0.129"
+        android:contentDescription="Play Again"/>
+
+    <Button
+        android:id="@+id/exitGameButton"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:text="✖ Exit Game"
+        android:background="@drawable/button_rounded"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playAgainButton"
+        app:layout_constraintVertical_bias="0.129"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:contentDescription="Exit Game"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
