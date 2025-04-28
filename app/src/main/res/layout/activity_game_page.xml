@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GamePage"
-    android:background="@drawable/main_background">
+    android:background="@drawable/main_background"
+    android:fitsSystemWindows="true">
     <View
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,16 +18,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="10dp"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/backIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"
-            android:contentDescription="Navigate Back"/>
+            android:contentDescription="Navigate Back"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/text1"
@@ -40,7 +42,9 @@
             android:layout_weight="1"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/poppins_bold"
-            android:contentDescription="Yelling Bee"/>
+            android:contentDescription="Yelling Bee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
 
     </LinearLayout>
 
