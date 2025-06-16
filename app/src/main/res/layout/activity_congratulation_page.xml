@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".CongratulationPage">
+    tools:context=".CongratulationPage"
+    >
     <View
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

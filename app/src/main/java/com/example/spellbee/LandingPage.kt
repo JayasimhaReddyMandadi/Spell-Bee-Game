@@ -28,5 +28,14 @@ class LandingPage : AppCompatActivity() {
             startActivity(intent)
         }
 
+        practiceModeButton.setOnClickListener {
+            val intent = Intent(this@LandingPage, PracticePage::class.java)
+            startActivity(intent)
+        }
+
+        howToPlayButton.setOnClickListener {
+            val intent = Intent(this@LandingPage, HowToPlayPage::class.java)
+            startActivity(intent)
+        }
     }
 }

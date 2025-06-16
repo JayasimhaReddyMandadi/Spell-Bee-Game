@@ -22,7 +22,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.spellbee.api.RetrofitClient
 import com.example.spellbee.api.SubmitRequest
+import com.example.spellbee.data.WordModel
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.*
 
 class GamePage : AppCompatActivity(), OnInitListener {
@@ -67,7 +69,6 @@ class GamePage : AppCompatActivity(), OnInitListener {
         wordCountText = findViewById(R.id.wordCountText)
         updateProgressbar = findViewById(R.id.updateProgressbar)
         backIcon = findViewById(R.id.backIcon)
-
         textToSpeech = TextToSpeech(this, this)
         gameStartTime = System.currentTimeMillis()
 
@@ -175,12 +176,28 @@ class GamePage : AppCompatActivity(), OnInitListener {
         val totalWordsCount = wordList.size
         val correctWordsCount = score / 10
         val mistakeWordsCount = totalWordsCount - correctWordsCount
-        val submitDate = java.time.LocalDate.now().toString()
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val submitDate = dateFormat.format(Date())
         val hintCount = hintUsed
 
         val gameEndTime = System.currentTimeMillis()
         val totalTimeMillis = gameEndTime - gameStartTime
         val totalTimeSeconds = (totalTimeMillis / 1000).toInt()
+
+        // Create word models only for incorrect and skipped words
+        val wordModels = ArrayList<WordModel>()
+        for (i in wordList.indices) {
+            val word = wordList[i]
+            val sentence = if (i < sentenceList.size) sentenceList[i] else ""
+            val userInput = if (i == currentIndex) inputText.text.toString().trim() else ""
+            val isIncorrect = i < currentIndex && !word.equals(userInput, ignoreCase = true)
+            val isSkipped = i >= currentIndex
+            
+            // Only add words that are incorrect or skipped
+            if (isIncorrect || isSkipped) {
+                wordModels.add(WordModel(word, sentence, isIncorrect, isSkipped))
+            }
+        }
 
         val request = SubmitRequest(
             rider_id = 101,
@@ -201,7 +218,8 @@ class GamePage : AppCompatActivity(), OnInitListener {
                     intent.putExtra("MistakeWords", mistakeWordsCount)
                     intent.putExtra("HintUsed", hintCount)
                     intent.putExtra("TotalTime", totalTimeSeconds)
-
+                    intent.putExtra("isPracticeMode", false)
+                    intent.putParcelableArrayListExtra("wordModels", wordModels)
                     startActivity(intent)
                     finish()
                 } else {
@@ -212,8 +230,6 @@ class GamePage : AppCompatActivity(), OnInitListener {
             }
         }
     }
-
-
 
 
     private fun speakWord(word: String) {
